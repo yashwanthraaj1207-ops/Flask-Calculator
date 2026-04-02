@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/412462/pexels-photo-412462.jpeg') no-repeat center center fixed;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            margin-top: 80px;
+            font-size: 50px;
+            color: black;
+            padding: 15px 40px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: inline-block;
+        }
+
+        .calculator {
+            margin: 40px auto;
+            width: 320px;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        #display {
+            width: 100%;
+            height: 70px;
+            font-size: 28px;
+            text-align: right;
+            padding: 10px;
+            border-radius: 12px;
+            border: solid black 1px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
+            margin-left: -10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        button {
+            height: 65px;
+            font-size: 20px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #dcdcdc, #ffffff);
+            box-shadow: 
+                5px 5px 10px rgba(0,0,0,0.2),
+                -5px -5px 10px rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: solid black 1px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 
+                inset 3px 3px 8px rgba(0,0,0,0.2),
+                inset -3px -3px 8px rgba(255,255,255,0.7);
+        }
+
+        .operator {
+            background: #ff9500;
+            color: white;
+        }
+
+        .equal {
+            background: #34c759;
+            color: white;
+            grid-column: 4;
+            grid-row: 5;
+        }
+
+        .clear {
+            background: #ff3b30;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="header">Calculator</h1>
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+
+        <div class="buttons">
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('/')">/</button>
+
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('*')">*</button>
+
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button class="clear" onclick="clearDisplay()">AC</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        async function calculate() {
+            let expression = document.getElementById("display").value;
+
+            let response = await fetch("http://127.0.0.1:5000/calculate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ expression: expression })
+            });
+
+            let data = await response.json();
+            document.getElementById("display").value = data.result;
+}
+</script>
+
+</body>
+</html>
