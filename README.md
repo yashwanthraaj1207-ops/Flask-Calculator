@@ -1,90 +1,256 @@
-# 🧮 Full Stack Calculator (Flask + JavaScript)
+# 🧮 Full Stack Calculator Web Application
 
-A modern calculator application built using **Flask (Python)** for the backend and **HTML, CSS, JavaScript** for the frontend.
+A modern calculator web application built using **Flask (Python)** for the backend and **HTML, CSS, JavaScript** for the frontend.
 
-This project demonstrates how frontend and backend communicate using APIs in a real-world web application.
-
----
-
-## 🚀 Features
-
-* Perform basic arithmetic operations (+, −, ×, ÷)
-* Handles operator precedence using stack-based logic
-* Backend API built with Flask
-* Clean UI with glassmorphism design
-* Error handling (division by zero, invalid input)
-* Secure calculation without using `eval()`
+The application performs arithmetic calculations through a Flask API, demonstrating full-stack web development concepts, frontend-backend communication, and secure expression evaluation without using Python's `eval()` function.
 
 ---
 
-## 🧠 What I Learned
+## 🚀 Project Overview
 
-* How frontend communicates with backend using HTTP requests
-* Building REST APIs using Flask
-* Implementing expression evaluation without `eval()`
-* Handling edge cases like invalid input and division by zero
-* Understanding full-stack architecture
+This project showcases how a frontend user interface communicates with a backend server through HTTP requests.
+
+Users can enter mathematical expressions through a modern calculator interface, and the Flask backend processes and returns the calculated result securely.
 
 ---
 
-## ⚙️ Tech Stack
+## ✨ Features
 
-* **Frontend:** HTML, CSS, JavaScript
-* **Backend:** Python (Flask)
-* **Communication:** Fetch API (HTTP requests)
+* ➕ Addition
+* ➖ Subtraction
+* ✖️ Multiplication
+* ➗ Division
+* Secure expression evaluation
+* Operator precedence handling
+* REST API integration
+* Modern Glassmorphism UI
+* Responsive Design
+* Error Handling
+* Protection against invalid inputs
+* Division-by-zero detection
 
 ---
 
-## 📸 Demo
+## 🛠️ Technologies Used
 
-*(Add a screenshot here)*
+### Frontend
 
-Example:
+* HTML5
+* CSS3
+* JavaScript
 
-![Calculator UI](screenshot.png)
+### Backend
+
+* Python
+* Flask
+
+### Communication
+
+* Fetch API
+* HTTP Requests
+* JSON Data Exchange
 
 ---
 
-## 🛠️ How to Run
+## 🏗️ System Architecture
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/calculator-flask.git
+```text
+User Interface (HTML/CSS/JS)
+          │
+          ▼
+     Fetch API
+          │
+          ▼
+    Flask Backend
+          │
+          ▼
+ Expression Parser
+          │
+          ▼
+ Calculation Result
 ```
 
-2. Navigate to the project folder
+---
 
-```bash
-cd calculator-flask
+## 📂 Project Structure
+
+```text
+Flask-Calculator/
+
+│
+├── app.py
+├── Python_text.py
+├── Calculator.html
+├── README.md
+│
+├── Screenshot (271).png
+├── Screenshot (272).png
+├── Screenshot (273).png
+├── Screenshot (274).png
+├── Screenshot (275).png
+├── Screenshot (276).png
+└── Screenshot (277).png
 ```
 
-3. Install dependencies
+---
+
+## ⚙️ How It Works
+
+### Step 1
+
+User enters a mathematical expression.
+
+### Step 2
+
+JavaScript sends the expression to the Flask backend using the Fetch API.
+
+### Step 3
+
+The backend validates and processes the expression.
+
+### Step 4
+
+Operator precedence is applied correctly.
+
+### Step 5
+
+The calculated result is returned to the frontend.
+
+### Step 6
+
+The result is displayed instantly on the calculator screen.
+
+---
+
+## 📸 Screenshots
+
+### Calculator Interface
+
+Add your screenshots here:
+
+* Home Screen
+* Calculation Example
+* Error Handling Example
+* Responsive View
+
+---
+
+## 🚀 Installation & Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yashwanthraaj1207-ops/Flask-Calculator-standard.git
+```
+
+### Navigate to Project Folder
+
+```bash
+cd Flask-Calculator-standard
+```
+
+### Install Dependencies
 
 ```bash
 pip install flask flask-cors
 ```
 
-4. Run the Flask server
+### Run Application
 
 ```bash
 python app.py
 ```
 
-5. Open `index.html` in your browser
+### Open Browser
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
 
 ---
 
-## 🔮 Future Improvements
+## 💻 Example Calculation
 
-* Add support for brackets `( )`
-* Add decimal calculations
-* Improve UI/UX
-* Add calculation history
-* Deploy as a web application
+### Input
+
+```text
+25 + 15 × 2
+```
+
+### Output
+
+```text
+55
+```
+
+The application correctly follows operator precedence rules.
 
 ---
 
-## 📌 Author
+## 🧠 Skills Demonstrated
 
-**Yashwanth Raaj**
+* Full-Stack Development
+* Flask Framework
+* REST API Development
+* Frontend-Backend Integration
+* JavaScript Programming
+* HTTP Communication
+* Error Handling
+* Problem Solving
+* Software Architecture
+
+---
+
+## 📈 Future Enhancements
+
+* Support for Brackets ( )
+* Scientific Calculator Functions
+* Calculation History
+* User Authentication
+* Dark / Light Theme
+* Mobile Optimization
+* Cloud Deployment
+* Database Integration
+
+---
+
+## 🎓 Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+* Building APIs using Flask
+* Handling frontend-backend communication
+* Developing responsive web interfaces
+* Implementing secure calculation logic
+* Managing user inputs and validation
+* Understanding full-stack application architecture
+
+---
+
+## 👨‍💻 Author
+
+**S. Yashwanth Raaj**
+
+B.E Computer Science and Engineering (Artificial Intelligence & Machine Learning)
+
+Sri Sairam Engineering College
+
+GitHub:
+https://github.com/yashwanthraaj1207-ops
+
+LinkedIn:
+www.linkedin.com/in/yashwanthraaj1207
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+## 📜 License
+
+This project is developed for educational and learning purposes.
